@@ -1,34 +1,29 @@
-body {
-    margin: auto;
-    box-sizing: border-box;
+a:hover {
+  text-decoration: none;
 }
 
-header {
-    margin: 0 auto;
-    height: auto;
-    padding: 92px 51px 92px 51px;
-    color: #000;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-a {
+.header__link {
   text-underline-offset: 4px;
 }
 
-address {
-  font-style: normal;
-}
-
 .header {
+  margin: 0 auto;
+  height: auto;
+  padding: 92px 51px 92px 51px;
+  color: #000;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   display: grid;  
   grid-template-columns:repeat(3, 1fr); 
   }
 
-.header__link_active {
+.header__links-list-item:first-child {
   list-style-type: none;
+}
+
+.header__link_active {
   text-decoration: none;
 }
 
@@ -44,6 +39,9 @@ address {
   padding-right: 4px;
 }
 
+.header__links-list-item:last-child {
+  padding-right: 0;
+}
 
 .header__logo {
   justify-self: center;
@@ -54,16 +52,26 @@ address {
   height: 105px;
 }
 
+.address {
+  font-style: normal;
+  text-underline-offset: 4px;
+  width: 240px;
+}
+
+
 .header__address {
   justify-self: end;
   align-self: center;
   line-height: 24px;
+  padding-left: 2px;
 }
 
 .cover {
-  background-image: url("/images/cover.jpg");
+  background-image: url("../images/cover.jpg");
   position: relative;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   margin-bottom: 180px;
 }
 
@@ -84,39 +92,42 @@ address {
   font-weight: 700;
   line-height: 115%;
   text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
   position: relative;
   z-index: 10;
 }
 
 .aligned-text {
+  letter-spacing: 0.3em;
+}
+
+.aligned-text_left {
   margin-left: 50px;
   padding-top: 165px;
-  letter-spacing: 30px;
 }
 
 .letter-spacing-extended {
-  letter-spacing: 60px;
+  letter-spacing: 0.6em;
 }
 
 .aligned-text_right .letter-spacing-extended {
-  letter-spacing: 9px;
+  letter-spacing: 0.09em;
 }
 
 .aligned-text_center {
   margin: 12px 0 6px;
   text-align: center;
-  letter-spacing: 30px;
 }
 
 .aligned-text_right {
   margin-right: 50px;
   margin-bottom: 127px;
   text-align: right;
-  letter-spacing: 30px;
 }
 
 .no-letter-spacing {
-  letter-spacing: 0px;
+  letter-spacing: 0;
 }
 
 .cover__description {
@@ -149,15 +160,16 @@ address {
   font-style: normal;
   font-weight: 400;
   text-transform: uppercase;
-  border: 1px solid #FFF;
+  border: 1px solid currentColor;
   padding: 12px 32px;
+  cursor: pointer;
 }
 
 .lots {
   margin: 0 50px 181px 50px;
 }
 
-h2 {
+.about__title {
   color: #000;
   font-size: 40px;
   font-style: normal;
@@ -166,21 +178,30 @@ h2 {
   margin-bottom: 27px;
 }
 
+.about__text {
+  font-size: 20px;
+}
+
 .lots__heading {
   margin-left: 40px;
+  text-transform: uppercase;
+  padding-bottom: 27px;
+  font-size: 40px;
 }
 
 .lots__card-list {
   display:flex;
   flex-wrap: wrap;
   gap: 23px;
+  margin-bottom: 30px;
 }
 
 .lots__card-list-item {
   list-style-type: none;
+  flex-basis: 430px;
   flex-grow: 1;
   min-height: 450px;
-  margin-bottom: 30px;
+
 }
 
 .card-link {
@@ -194,28 +215,27 @@ h2 {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   color: #FFF;
-  width: 430px;
   height: 100%;
   padding: 50px 40px;
 }
 
 .card_type_film {
-  background-image: url("/images/card-lot-01.jpg");
-  background-size: cover;
+  background-image: url("../images/card-lot-01.jpg");
 }
 
 .card_type_book {
-  background-image: url("/images/card-lot-02.jpg");
-  background-size: cover;
+  background-image: url("../images/card-lot-02.jpg");
 }
 
 .card_type_picture {
-  background-image: url("/images/card-lot-03.jpg");
-  background-size: cover;
+  background-image: url("../images/card-lot-03.jpg");
 }
 
-h3 {
+.card__title {
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
@@ -225,7 +245,7 @@ h3 {
   z-index: 10;
 }
 
-p {
+.card__text {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -237,6 +257,7 @@ p {
   display: block;
   margin-left: 40px;
   font-size: 20px;
+  text-underline-offset: 4px;
 }
 
 .about {
@@ -248,7 +269,11 @@ p {
 
 .about__column {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.about__column-center {
+  justify-self: center;
 }
 
 .about__logo {
@@ -270,13 +295,13 @@ p {
   margin: 100px 0;
 }
 
-.about__text__block {
+.about__text {
   display: flex;
   flex-direction: column;
   row-gap: 25px;
 }
 
-footer {
+.footer {
   display: grid;  
   grid-template-columns:repeat(3, 1fr); 
   margin: 0 50px 90px 50px;
@@ -295,6 +320,7 @@ footer {
   font-size: 18px;
   list-style-type: none;
   padding-inline-start: 0px;
+  text-underline-offset: 4px;
 }
 
 .footer__menu-link_active {
